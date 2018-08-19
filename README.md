@@ -39,6 +39,7 @@ docker部署 mysql, 并手动创建数据库:mydb 以及用户:molmc 密码: 123
 1. 启动 mysql
 cd /path/to/resources
 ./startdeps.sh
+```
 
 2. 进入docker
 ```
