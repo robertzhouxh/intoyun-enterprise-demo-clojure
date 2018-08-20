@@ -9,6 +9,7 @@
     [ring.middleware.resource :as resource]
     [ring.middleware.stacktrace :as stacktrace]
     [kfk.consumer :as consumer]
+    [web.websocket :as websocket]
     [web.handler :as handler])
   (:gen-class))
 
@@ -25,11 +26,13 @@
    params/wrap-params))
 
 (defn -main
-  [port]
+  [http-port]
   (consumer/init)
-  (jetty/run-jetty #'app {:port (Integer. port)}))
+  (websocket/start 9090)
+  (jetty/run-jetty #'app {:port (Integer. http-port)}))
 (defn -dev-main
   "Reloads server when changes are made to code, including -main adapter"
-  [port]
+  [http-port]
   (consumer/init)
-  (jetty/run-jetty (wrap-reload #'app) {:port (Integer. port)}))
+  (websocket/start 9090)
+  (jetty/run-jetty (wrap-reload #'app) {:port (Integer. http-port)}))

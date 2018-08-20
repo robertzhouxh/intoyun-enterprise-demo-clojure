@@ -1,5 +1,6 @@
 (ns web.handler
   (:require [jdbc.user :as user]
+            [web.websocket :as ws]
             [taoensso.timbre :as log])
   (:use [compojure.core :only [GET POST PUT DELETE defroutes context]]
         [compojure.route :only [not-found]]

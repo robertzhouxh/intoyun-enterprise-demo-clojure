@@ -5,6 +5,7 @@
             [buddy.core.crypto  :as crypto]
             [buddy.core.bytes   :as bytes]
             [kfk.parser         :as parser]
+            [web.websocket      :as ws]
             [clojure.core.async :as a]))
 
 (def in-chan (a/chan))
@@ -23,7 +24,8 @@
 
     ;; TODO: process the plaintext, should use defmulti
     (let [data (json/parse-string plaintext true)]
-      (log/debug "\n------------------------------------- JsonText ----------------------------------------------------\n" data)
+      ;;(log/debug "\n------------------------------------- JsonText ----------------------------------------------------\n" data)
+      (ws/publish {:op code :body (:data data)} ws/uid)
       (parser/parse code data))))
 
 (defn start-a-consumers
