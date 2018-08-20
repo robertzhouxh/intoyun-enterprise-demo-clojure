@@ -13,10 +13,12 @@
 
 3. 集成 mysql 数据库接口， 方便用户操作 mysql 数据库
 
+4. 集成 websocket 长连接推送
+
 ## TODO
 
 1. 统一配置文件
-2. 添加 websocket 推送服务
+2. http 代理
 
 ## 快速开始
 
