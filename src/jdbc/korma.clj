@@ -3,8 +3,8 @@
         korma.core))
 
 (defdb korma-db
-  (mysql {:db "dbridge"
+  (mysql {:db "mydb"
           :host "127.0.0.1"
           :port 3306
-          :user "dbridge"
+          :user "molmc"
           :password "123456"}))
