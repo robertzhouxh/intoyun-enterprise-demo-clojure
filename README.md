@@ -26,10 +26,31 @@
 
 参考官方文档  https://github.com/technomancy/leiningen
 
-以下针对 macos 系统安装, 其他系统请参照官网
+1. macos 
 
 ```
 brew install leiningen
+```
+
+2. ubunut
+
+2.1 下载安装脚本
+```
+cd /usr/local/bin
+wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+chmod 755 lein
+```
+
+2.2 强烈建议 terminal fq(shadowsocks+Polipo) + 导出环境变量
+
+```
+export HTTP_CLIENT="wget --no-check-certificate -O"
+```
+
+2.3 安装 leiningen
+
+```
+lein
 ```
 
 ### 初始化 mysql
@@ -78,7 +99,7 @@ docker exec -it mysql sh
 
   lein deps
 
-2. 启动服务
+2. 启动服务(http: 8080, websocket: 9090)
 
   lein run 8080
 

@@ -11,8 +11,6 @@ echo "preparing images"
 echo "===>"
 
 #sudo docker pull mysql:5.6
-#sudo docker pull mongo:3.2
-#sudo docker pull redis:3.2
 
 sudo docker rm -f mysql
 
