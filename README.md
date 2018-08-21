@@ -83,7 +83,7 @@ docker exec -it mysql sh
   FLUSH PRIVILEGES;
 ```
 
-4. 退出docker
+4. 退出 mysql docker containner
 
 5. 回到项目根目录， 创建数据库表,可以修改 (migrations/20180816102714302-accounts.clj)
 
