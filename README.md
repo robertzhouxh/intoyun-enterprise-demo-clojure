@@ -35,6 +35,7 @@ brew install leiningen
 2. ubunut
 
 2.1 下载安装脚本
+
 ```
 cd /usr/local/bin
 wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
@@ -58,9 +59,11 @@ lein
 项目假设用户使用 mysql 作为数据持久化解决方案 , 需要在本地启动 mysql, 这里采用
 docker部署 mysql, 并手动创建数据库:mydb 以及用户:molmc 密码: 123456
 
+1. 启动 mysql (以下脚本会帮你完成mysql 启动）
+
 ```
-1. 启动 mysql
-cd /path/to/resources
+cd /path/to/intoyun-enterprise-demo-clojure
+cd resources
 ./startdeps.sh
 ```
 
@@ -85,14 +88,19 @@ docker exec -it mysql sh
 5. 回到项目根目录， 创建数据库表,可以修改 (migrations/20180816102714302-accounts.clj)
 
 ```
-  lein clj-sql-up migrate
+cd /path/to/intoyun-enterprise-demo-clojure
+vi project.clj (修改 mysql 的配置项, 可以使用默认值, 和下面配置mysql一致) 
+lein clj-sql-up migrate
 
 ```
 
 ### 修改配置文件(todo: 稍后会统一配置)
 
-1. src/jdbc/korma.clj  修改 mysql 配置
-2. src/kafka/consumer.clj 修改 username， password （改为服务器授权的 appid， appsecret）
+```
+cd /path/to/intoyun-enterprise-demo-clojure
+vi src/jdbc/korma.clj  修改 mysql 配置 (可以使用默认的值)
+vi  src/kafka/consumer.clj 修改 20, 21 两行 username， password （改为服务器授权的 appid， appsecret）
+```
 
 ### 启动服务
 1. 第一次启动之前请先拉取依赖， 可能需要半个小时左右， 视网络情况

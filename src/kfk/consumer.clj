@@ -18,8 +18,8 @@
        (format "%032x")))
 
 (defn init []
-  (let [username "your-appid"
-        password "your-appsecret"
+  (let [username "a4e21756ae15d90c939537e9c2b4f160"
+        password "9254604effc3d26a74d1629f3ea1e59e"
         servers  "121.199.70.37:9092"
         key      (codecs/hex->bytes password)
         authjar  "org.apache.kafka.common.security.plain.PlainLoginModule"
